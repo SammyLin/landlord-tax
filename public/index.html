@@ -6,318 +6,511 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-RT0LP8VC0X');</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light only">
-<title>房東稅賦試算｜公益出租人、社宅包租代管、自租自管稅負比較</title>
-<meta name="description" content="免費房東稅賦試算：輸入月租金與綜所稅級距，比較自租自管、公益出租人、社宅包租代管、一般宅包租代管四種身分的租金所得稅、房屋稅、地價稅與整年淨收益。全部在瀏覽器本地計算。">
+<title>房東稅賦試算｜自行出租、公益出租人、社宅包租代管一年淨收益比較</title>
+<meta name="description" content="免費房東租賃稅務與收益模擬器：輸入月租金，即時比較自行出租、公益出租人、一般包租代管、社宅包租、社宅代管的所得稅、二代健保補充保費、房屋稅、地價稅、政府補助與一年淨現金流。全部在瀏覽器本地計算。">
 <link rel="canonical" href="https://landlord.3mi.ai/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta name="theme-color" content="#c98a1a">
+<meta name="theme-color" content="#f7faf9">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:site_name" content="3mi.ai">
 <meta property="og:url" content="https://landlord.3mi.ai/">
-<meta property="og:title" content="房東稅賦試算：算算看你該當哪種房東">
-<meta property="og:description" content="同一間房子、四種出租身分，所得稅、房屋稅、地價稅與整年落袋差多少一次看懂。">
+<meta property="og:title" content="房東稅賦試算：你的房子，一年真正能賺多少？">
+<meta property="og:description" content="五種出租方式，所得稅、二代健保、房地稅、補助與空置風險一次算清，看一年實際能留下多少錢。">
 <meta property="og:image" content="https://landlord.3mi.ai/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="房東稅賦試算：算算看你該當哪種房東">
-<meta name="twitter:description" content="同一間房子、四種出租身分，所得稅、房屋稅、地價稅與整年落袋差多少一次看懂。">
+<meta name="twitter:title" content="房東稅賦試算：你的房子，一年真正能賺多少？">
+<meta name="twitter:description" content="五種出租方式，所得稅、二代健保、房地稅、補助與空置風險一次算清，看一年實際能留下多少錢。">
 <meta name="twitter:image" content="https://landlord.3mi.ai/og.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"房東稅賦試算","url":"https://landlord.3mi.ai/","applicationCategory":"FinanceApplication","operatingSystem":"Any","inLanguage":"zh-TW","description":"比較自租自管、公益出租人、社宅包租代管、一般宅包租代管四種出租身分的租金所得稅、房屋稅、地價稅與整年淨收益。","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"},"author":{"@type":"Person","name":"山米","url":"https://3mi.ai/"}}
+{"@context":"https://schema.org","@type":"WebApplication","name":"房東稅賦試算","url":"https://landlord.3mi.ai/","applicationCategory":"FinanceApplication","operatingSystem":"Any","inLanguage":"zh-TW","description":"比較自行出租、公益出租人、一般包租代管、社宅包租、社宅代管的租賃所得稅、二代健保補充保費、房屋稅、地價稅、補助與一年淨現金流。","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"},"author":{"@type":"Person","name":"山米","url":"https://3mi.ai/"}}
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://font.emtech.cc" crossorigin>
+<link rel="stylesheet" href="https://font.emtech.cc/css/GenYoGothicTW/400">
+<link rel="stylesheet" href="https://font.emtech.cc/css/GenYoGothicTW/500">
+<link rel="stylesheet" href="https://font.emtech.cc/css/GenYoGothicTW/700">
 <style>
-/* 與窩算算同一套字:標題圓體、內文 Noto Sans TC、數字 Nunito */
-@font-face{
-  font-family:'jf Open Huninn';
-  src:url('https://cdn.jsdelivr.net/gh/justfont/open-huninn-font@master/font/jf-openhuninn-2.0.woff2') format('woff2');
-  font-weight:400;font-style:normal;font-display:swap;
-}
+/* 3mi.ai 色票與字型 */
 :root{
   color-scheme:light;
-  --background:oklch(98% .005 80);
-  --foreground:oklch(24.6% .012 60);
-  --card:oklch(100% 0 0);
-  --muted:oklch(94% .015 80);
-  --muted-foreground:oklch(53.5% .02 60);
-  --secondary:oklch(95.5% .015 80);
-  --primary:oklch(66.6% .16 80);
-  --border:oklch(91.5% .006 60);
-  --destructive:oklch(40% .15 25);
-  --positive:oklch(52% .13 150);
-  --radius:1.5rem;
-  --shadow:0 1px 3px oklch(24.6% .012 60/.04), 0 12px 32px oklch(24.6% .012 60/.05);
-  --sans:"Noto Sans TC",system-ui,sans-serif;
-  --display:"jf Open Huninn","Noto Sans TC",system-ui,sans-serif;
-  --num:"Nunito","Noto Sans TC",system-ui,sans-serif;
+  --paper:#f7faf9;--surface:#fff;--line:#e2eae8;--line-strong:#cfdcd9;
+  --ink:#111614;--ink-2:#4a5653;--ink-3:#7b8885;
+  --brand:#007f73;--brand-light:#00b8a9;--brand-subtle:#e0f5f2;
+  /* 一致的財務語意色：收入=品牌青、稅費=赭紅、成本=灰、補助=紫 */
+  --income:#007f73;--tax:#c2410c;--tax-subtle:#fdece3;--cost:#93a19e;--subsidy:#6d4fc2;--subsidy-subtle:#efeafb;
+  --exempt:#00b8a9;--expense:#b9e3dd;
+  --ease:cubic-bezier(.32,.72,0,1);
+  --shadow-sm:0 1px 2px rgba(17,22,20,.04);
+  --shadow-md:0 1px 2px rgba(17,22,20,.04),0 8px 24px rgba(17,22,20,.06);
+  --shadow-lg:0 2px 6px rgba(17,22,20,.05),0 18px 40px rgba(17,22,20,.10);
+  --sans:'GenYoGothicTW','Noto Sans TC',system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--sans);background:var(--background);color:var(--foreground);
-  line-height:1.6;-webkit-text-size-adjust:100%}
-.icon{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:2;
-  stroke-linecap:round;stroke-linejoin:round;flex:none}
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-text-size-adjust:100%}
+h1,h2,h3{letter-spacing:-.02em;line-height:1.15;text-wrap:balance}
+.num{font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.icon{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:6px}
+::selection{background:var(--brand);color:var(--paper)}
+[hidden]{display:none!important}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
 
 /* 頂欄 */
-.topbar{position:sticky;top:0;z-index:20;background:var(--card);
-  border-bottom:1px solid var(--border);backdrop-filter:blur(8px)}
-.topbar .inner{max-width:72rem;margin:0 auto;padding:14px 20px;
-  display:flex;align-items:center;gap:14px}
-.mark{width:48px;height:48px;border-radius:50%;border:2px solid var(--primary);
-  display:grid;place-items:center;color:var(--primary);font-size:22px;flex:none}
-.brand strong{display:block;font-family:var(--display);font-size:1.3rem;font-weight:400;letter-spacing:.01em;line-height:1.25}
-.brand span{display:block;font-size:.82rem;color:var(--muted-foreground);font-weight:500}
-.topbar .pill{margin-left:auto;display:inline-flex;align-items:center;gap:8px;
-  padding:11px 20px;border:2px solid var(--primary);border-radius:999px;
-  color:var(--primary);font-family:var(--display);font-weight:400;font-size:1rem;text-decoration:none;
-  transition:background .15s}
-.topbar .pill:hover{background:var(--secondary)}
-.topbar .pill .icon{font-size:18px}
+.nav{position:sticky;top:0;z-index:30;background:rgba(247,250,249,.82);backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid var(--line)}
+.nav .in{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:12px}
+.logo{display:inline-flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-weight:700;font-size:1.05rem}
+.logo .mk{width:32px;height:32px;border-radius:9px;background:var(--brand);color:#fff;display:grid;place-items:center;font-size:18px}
+.logo small{display:block;font-size:.72rem;font-weight:500;color:var(--ink-2);line-height:1.2}
+.nav .links{margin-left:auto;display:flex;gap:4px;overflow-x:auto}
+.pill{display:inline-flex;align-items:center;min-height:38px;padding:0 12px;border-radius:999px;font-size:.78rem;font-weight:600;color:var(--ink-2);text-decoration:none;white-space:nowrap;transition:color .2s,background .2s}
+.pill:hover{color:var(--brand);background:var(--brand-subtle)}
 
-.wrap{max-width:72rem;margin:0 auto;padding:0 20px 72px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
 
 /* Hero */
-.hero{text-align:center;padding:56px 0 44px}
-.hero h1{font-family:var(--display);font-size:clamp(2rem,6.2vw,3.1rem);font-weight:400;letter-spacing:.01em;line-height:1.25}
-.hero h1 em{font-style:normal;color:var(--primary)}
-.hero .lead{margin-top:16px;font-size:clamp(1rem,2.6vw,1.2rem);
-  color:var(--muted-foreground);font-weight:500}
-.hero .privacy{margin-top:22px;display:inline-flex;align-items:center;gap:9px;
-  font-size:.92rem;color:var(--muted-foreground);font-weight:600}
-.hero .privacy .icon{font-size:19px;color:var(--primary)}
+.hero{padding:44px 0 28px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:700;color:var(--brand);letter-spacing:.06em}
+.hero h1{font-size:clamp(2rem,5.4vw,3.3rem);font-weight:700;letter-spacing:-.035em;line-height:1.08;margin-top:10px}
+.hero h1 em{font-style:normal;color:var(--brand)}
+.hero .lead{margin-top:12px;color:var(--ink-2);font-size:1.02rem;max-width:44em}
+.board{margin-top:26px;background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-md);padding:24px}
+.rent-row{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:20px;align-items:end}
+.lbl{display:flex;align-items:center;gap:8px;font-size:.88rem;font-weight:700;color:var(--ink-2);margin-bottom:8px}
+.money{position:relative}
+.money span{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--ink-3);font-size:.95rem;pointer-events:none}
+.money input{width:100%;padding:12px 14px 12px 46px;font:inherit;font-size:1.35rem;font-weight:700;border:1px solid var(--line-strong);border-radius:14px;background:var(--paper);color:var(--ink);font-variant-numeric:tabular-nums}
+.money input:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(0,127,115,.18)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:38px;background:transparent;cursor:pointer;--p:50%}
+input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:99px;background:linear-gradient(90deg,var(--brand) var(--p),var(--line) var(--p))}
+input[type=range]::-moz-range-track{height:6px;border-radius:99px;background:linear-gradient(90deg,var(--brand) var(--p),var(--line) var(--p))}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-8px;border-radius:50%;background:#fff;border:2px solid var(--brand);box-shadow:var(--shadow-md)}
+input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;border:2px solid var(--brand)}
+.scale{display:flex;justify-content:space-between;font-size:.72rem;color:var(--ink-3);margin-top:-4px}
 
-/* 卡片 */
-.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
-  padding:32px;margin-bottom:24px;box-shadow:var(--shadow)}
-.card > h2{display:flex;align-items:center;gap:12px;font-family:var(--display);font-size:1.55rem;font-weight:400;line-height:1.3}
-.card > h2 .icon{font-size:30px;color:var(--primary)}
-.card > .sub{margin-top:8px;font-size:1rem;color:var(--muted-foreground);font-weight:600}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg label{position:relative}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{display:inline-flex;align-items:center;gap:6px;min-height:38px;padding:0 14px;border:1px solid var(--line-strong);border-radius:999px;font-size:.88rem;font-weight:600;color:var(--ink-2);background:var(--surface);cursor:pointer;transition:all .2s var(--ease)}
+.seg span:hover{border-color:var(--brand);color:var(--brand)}
+.seg input:checked+span{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.seg input:focus-visible+span{outline:2px solid var(--brand);outline-offset:2px}
+.seg.sm span{min-height:34px;padding:0 11px;font-size:.82rem}
+.plans{margin-top:18px}
 
-/* 表單 */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;margin-top:28px}
-.field > label{display:flex;align-items:center;gap:8px;font-size:1rem;font-weight:700;margin-bottom:10px}
-.badge{font-size:.75rem;font-weight:700;padding:2px 11px;border-radius:999px;
-  border:1px solid var(--border);color:var(--muted-foreground);background:var(--background)}
-.badge.req{border-color:var(--primary);color:var(--primary)}
-label .icon{font-size:15px;color:var(--muted-foreground)}
-.control{position:relative}
-.control input,.control select{width:100%;font-family:var(--num);padding:16px 68px 16px 18px;
-  border:1px solid var(--border);border-radius:1rem;background:var(--background);
-  font:inherit;font-size:1.15rem;font-weight:700;color:var(--foreground);
-  transition:border-color .15s,box-shadow .15s}
-.control select{padding-right:44px;appearance:none;cursor:pointer;
-  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);
-  background-position:calc(100% - 22px) 55%,calc(100% - 16px) 55%;
-  background-size:6px 6px,6px 6px;background-repeat:no-repeat}
-.control input:hover,.control select:hover{border-color:var(--primary)}
-.control input:focus,.control select:focus{outline:none;border-color:var(--primary);
-  box-shadow:0 0 0 4px oklch(66.6% .16 80/.16)}
-.control .unit{position:absolute;right:18px;top:50%;transform:translateY(-50%);
-  font-size:.95rem;font-weight:600;color:var(--muted-foreground);pointer-events:none}
-.hint{font-size:.82rem;color:var(--muted-foreground);margin-top:8px;font-weight:500;line-height:1.5}
+.kpis{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:12px;margin-top:22px}
+.kpi{min-width:0;border:1px solid var(--line);border-radius:16px;padding:16px 18px;background:var(--paper)}
+.kpi .k{font-size:.8rem;font-weight:700;color:var(--ink-2);display:flex;align-items:center;gap:6px}
+.kpi .v{font-size:clamp(1.5rem,3.2vw,2rem);font-weight:700;margin-top:4px;letter-spacing:-.03em;line-height:1.15}
+.kpi .s{font-size:.78rem;color:var(--ink-3);margin-top:4px}
+.kpi.main{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.kpi.main .k,.kpi.main .s{color:#b9c6c3}
+.kpi.main .v{font-size:clamp(2rem,4.6vw,2.9rem)}
+.kpi .v.tax{color:var(--tax)}
+.pos{color:var(--brand)}.neg{color:var(--tax)}
 
-details{margin-top:30px;border-top:1px solid var(--border);padding-top:22px}
-summary{cursor:pointer;font-family:var(--display);font-size:1.05rem;font-weight:400;color:var(--muted-foreground);
-  list-style:none;display:flex;align-items:center;gap:9px;user-select:none}
-summary::-webkit-details-marker{display:none}
-summary .icon{font-size:18px;color:var(--primary);transition:transform .2s}
-details[open] summary .icon{transform:rotate(90deg)}
-summary:hover{color:var(--primary)}
+/* 版面：控制台 + 結果 */
+.layout{display:grid;grid-template-columns:330px minmax(0,1fr);gap:24px;align-items:start;padding-bottom:64px}
+aside{position:sticky;top:76px;max-height:calc(100vh - 92px);overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-sm);padding:20px;scrollbar-width:thin}
+aside h2{font-size:1.05rem;display:flex;align-items:center;gap:8px}
+aside h2 .icon{color:var(--brand)}
+.grp{padding:16px 0;border-bottom:1px solid var(--line)}
+.grp:last-child{border-bottom:0}
+.grp>.lbl{margin-bottom:10px}
+.hint{font-size:.76rem;color:var(--ink-3);margin-top:6px;line-height:1.5}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.f label{display:block;font-size:.76rem;font-weight:700;color:var(--ink-2);margin-bottom:4px}
+.f input,.f select{width:100%;min-height:38px;padding:6px 10px;font:inherit;font-size:.9rem;font-weight:600;border:1px solid var(--line-strong);border-radius:10px;background:var(--paper);color:var(--ink);font-variant-numeric:tabular-nums}
+.f input:focus,.f select:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(0,127,115,.15)}
+.f .tag{font-size:.66rem;font-weight:700;padding:1px 6px;border-radius:99px;margin-left:4px;vertical-align:1px}
+.tag.once{background:var(--subsidy-subtle);color:var(--subsidy)}
+.tag.year{background:var(--brand-subtle);color:var(--brand)}
+.tag.tbc{background:var(--tax-subtle);color:var(--tax)}
+.sw{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:.88rem;font-weight:700;color:var(--ink-2);cursor:pointer;min-height:38px}
+.sw input{appearance:none;width:42px;height:24px;border-radius:99px;background:var(--line-strong);position:relative;cursor:pointer;transition:background .2s;flex:none}
+.sw input::after{content:'';position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:var(--shadow-sm);transition:transform .22s var(--ease)}
+.sw input:checked{background:var(--brand)}
+.sw input:checked::after{transform:translateX(18px)}
+.vac-v{margin-left:auto;font-weight:700;color:var(--ink)}
+details.adv>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:.88rem;font-weight:700;color:var(--ink-2);min-height:38px}
+details.adv>summary::-webkit-details-marker{display:none}
+details.adv>summary .icon{transition:transform .2s var(--ease);color:var(--brand)}
+details.adv[open]>summary .icon{transform:rotate(90deg)}
+details.adv .sub{font-size:.74rem;font-weight:700;color:var(--ink-3);letter-spacing:.06em;margin:14px 0 8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:0 16px;border-radius:999px;font-size:.88rem;font-weight:700;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);transition:all .2s var(--ease)}
+.btn:hover{border-color:var(--brand);color:var(--brand)}
+.btn:active{transform:scale(.97)}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.btn.primary:hover{background:var(--brand);border-color:var(--brand);color:#fff}
+.btn.ghost{border-color:transparent;color:var(--ink-2)}
 
-/* 表格 */
-.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:28px -32px 0;padding:0 32px}
-table{border-collapse:collapse;width:100%;min-width:700px;font-size:.95rem}
-th,td{padding:13px 16px;text-align:right;white-space:nowrap}
-th:first-child,td:first-child{text-align:left;white-space:normal;min-width:190px;font-weight:700}
-thead th{background:var(--muted);font-family:var(--display);font-weight:400;font-size:1.05rem;padding:16px;
-  border-bottom:1px solid var(--border)}
-thead th:first-child{border-radius:1rem 0 0 1rem}
-thead th:last-child{border-radius:0 1rem 1rem 0}
-thead th.best{color:var(--primary)}
-thead th small{display:block;font-weight:500;font-size:.76rem;
-  color:var(--muted-foreground);margin-top:3px;white-space:normal}
-tbody td{border-bottom:1px solid var(--border);font-family:var(--num);
-  font-variant-numeric:tabular-nums;font-weight:700}
-tbody td:first-child{font-family:var(--sans)}
-tbody tr.section td{background:var(--secondary);font-family:var(--display);font-weight:400;font-size:.85rem;
-  letter-spacing:.08em;color:var(--muted-foreground);text-align:left;padding:9px 16px}
-tbody tr.headline td{font-size:1.3rem;font-weight:900;padding:20px 16px}
-tbody tr.headline td:first-child{font-size:1rem;font-weight:700}
-td.win{color:var(--primary)}
-td.pos{color:var(--positive)}
-td.neg{color:var(--destructive)}
-td small{display:block;font-weight:500;font-size:.76rem;color:var(--muted-foreground);white-space:normal}
+/* 結果卡片 */
+main section{background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-sm);padding:24px;margin-bottom:20px}
+main h2{display:flex;align-items:center;gap:10px;font-size:1.3rem}
+main h2 .icon{color:var(--brand)}
+main h2 .no{font-size:.72rem;font-weight:700;color:var(--ink-3);letter-spacing:.08em;margin-left:auto}
+.desc{font-size:.88rem;color:var(--ink-2);margin-top:6px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:14px;font-size:.78rem;color:var(--ink-2);font-weight:600}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.note{display:flex;gap:8px;align-items:flex-start;margin-top:14px;padding:10px 12px;background:var(--paper);border-radius:12px;font-size:.78rem;color:var(--ink-2)}
+.note .icon{color:var(--brand);margin-top:3px}
 
-/* 說明 */
-.notes h3{display:flex;align-items:center;gap:9px;font-family:var(--display);font-size:1.12rem;font-weight:400;margin:28px 0 12px}
-.notes h3 .icon{font-size:19px;color:var(--primary)}
-.notes ul{margin-left:22px;font-size:.95rem;color:var(--muted-foreground);font-weight:500}
-.notes li{margin-bottom:7px}
-.notes a{color:var(--primary);font-weight:700;text-decoration:none;
-  border-bottom:1px solid transparent}
-.notes a:hover{border-bottom-color:var(--primary)}
-.disclaimer{margin-top:26px;padding:18px 20px;background:var(--secondary);border-radius:1rem;
-  font-size:.88rem;color:var(--muted-foreground);font-weight:500}
-.foot{border-top:1px solid var(--border);font-size:12px;color:var(--muted-foreground)}
-.foot .in{max-width:72rem;margin:0 auto;padding:32px 20px}
-.foot a{color:var(--muted-foreground);text-decoration:none;transition:color .15s}
-.foot a:hover,.foot a.strong{color:var(--foreground)}
-.foot a.strong:hover{color:#a16207}
+.split{margin-top:16px;display:grid;gap:14px}
+.split .hd{display:flex;justify-content:space-between;gap:10px;font-size:.88rem;margin-bottom:6px}
+.split .hd b{font-weight:700}
+.split .hd span{color:var(--ink-2)}
+.bar{display:flex;height:30px;border-radius:9px;overflow:hidden;background:var(--paper)}
+.bar>div{display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;white-space:nowrap;overflow:hidden;transition:flex-basis .32s var(--ease)}
+.b-exempt{background:var(--exempt);color:#fff}
+.b-expense{background:var(--expense);color:#13574f}
+.b-taxable{background:var(--tax);color:#fff}
+.b-net{background:var(--income);color:#fff}
+.b-taxes{background:var(--tax);color:#fff}
+.b-costs{background:var(--cost);color:#fff}
+
+.cmp{margin-top:16px;display:grid;gap:10px}
+.cmp .row{display:grid;grid-template-columns:96px minmax(0,1fr) 112px;gap:12px;align-items:center;font-size:.85rem}
+.cmp .row b{font-weight:700}
+.cmp .row .v{text-align:right;font-weight:700}
+.cmp .bar{height:24px;background:transparent}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:12px;margin-top:18px}
+.card{text-align:left;border:1px solid var(--line);border-radius:16px;padding:16px;background:var(--surface);display:flex;flex-direction:column;gap:2px;transition:transform .26s var(--ease),box-shadow .26s var(--ease),border-color .2s}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.card.on{border-color:var(--brand);box-shadow:0 0 0 2px var(--brand) inset}
+.card .t{display:flex;align-items:center;justify-content:space-between;gap:6px;font-weight:700;font-size:1rem}
+.card .badges{display:flex;flex-wrap:wrap;gap:4px;margin:4px 0 8px}
+.badge{font-size:.66rem;font-weight:700;padding:2px 7px;border-radius:99px;background:var(--paper);color:var(--ink-2);border:1px solid var(--line)}
+.badge.best{background:var(--brand);border-color:var(--brand);color:#fff;display:inline-flex;align-items:center;gap:3px}
+.card dl{display:grid;grid-template-columns:1fr auto;gap:3px 8px;font-size:.8rem}
+.card dt{color:var(--ink-2)}
+.card dd{text-align:right;font-weight:600}
+.card dd.tax{color:var(--tax)}.card dd.sub{color:var(--subsidy)}
+.card .net{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line-strong)}
+.card .net small{display:block;font-size:.74rem;color:var(--ink-2);font-weight:700}
+.card .net strong{font-size:1.45rem;letter-spacing:-.03em}
+.card .net em{display:block;font-style:normal;font-size:.74rem;color:var(--ink-3)}
+
+.detail{margin-top:16px;display:grid;gap:12px}
+.dblock{border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.dblock h3{font-size:.92rem;display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.dblock h3 .icon{color:var(--brand)}
+.dblock table{width:100%;border-collapse:collapse;font-size:.84rem}
+.dblock td{padding:5px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.dblock tr:last-child td{border-bottom:0}
+.dblock td:last-child{text-align:right;font-weight:700;white-space:nowrap;padding-left:12px}
+.dblock tr.sum td{font-weight:700;border-top:2px solid var(--ink);padding-top:8px}
+.dblock code{font-family:inherit;font-size:.78rem;background:var(--paper);padding:2px 6px;border-radius:6px;color:var(--ink-2)}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chips label{position:relative}
+.chips input{position:absolute;opacity:0}
+.chips span{display:inline-flex;align-items:center;gap:6px;min-height:38px;padding:0 14px;border-radius:999px;border:1px dashed var(--line-strong);font-size:.84rem;font-weight:600;color:var(--ink-2);cursor:pointer;transition:all .2s var(--ease)}
+.chips span .icon{opacity:0;width:0;transition:all .2s}
+.chips input:checked+span{border-style:solid;border-color:var(--brand);background:var(--brand-subtle);color:var(--brand)}
+.chips input:checked+span .icon{opacity:1;width:1em}
+.chips input:focus-visible+span{outline:2px solid var(--brand);outline-offset:2px}
+.wtable{width:100%;border-collapse:collapse;margin-top:16px;font-size:.86rem}
+.wtable th{font-size:.74rem;color:var(--ink-3);font-weight:700;text-align:right;padding:6px 8px;border-bottom:1px solid var(--line)}
+.wtable th:first-child,.wtable td:first-child{text-align:left}
+.wtable td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:right;font-weight:600}
+.wtable td.d{font-weight:700}
+.wempty{margin-top:14px;font-size:.85rem;color:var(--ink-3)}
+.wactions{display:flex;justify-content:flex-end;margin-top:12px}
+
+.exports{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+
+.notes h3{font-size:.95rem;margin:18px 0 8px;display:flex;align-items:center;gap:8px}
+.notes h3 .icon{color:var(--brand)}
+.notes ul{margin-left:20px;font-size:.85rem;color:var(--ink-2)}
+.notes li{margin-bottom:5px}
+.notes a{color:var(--brand);font-weight:600;text-decoration:none}
+.notes a:hover{text-decoration:underline}
+.disclaimer{margin-top:16px;padding:12px 14px;background:var(--paper);border-radius:12px;font-size:.8rem;color:var(--ink-2)}
+
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:999px;font-size:.88rem;font-weight:600;display:flex;gap:8px;align-items:center;pointer-events:none;transition:all .26s var(--ease);z-index:50}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+.foot{border-top:1px solid var(--line);font-size:12px;color:var(--ink-2)}
+.foot .in{max-width:1180px;margin:0 auto;padding:32px 20px}
+.foot a{color:var(--ink-2);text-decoration:none;transition:color .15s}
+.foot a:hover,.foot a.strong{color:var(--ink)}
+.foot a.strong:hover{color:var(--brand)}
 .foot .row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
 .foot .social{display:flex;gap:12px}
 .foot .social svg{width:16px;height:16px;display:block}
-.foot .more{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin-top:24px;padding-top:16px;border-top:1px solid var(--border);font-size:11px}
+.foot .more{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin-top:24px;padding-top:16px;border-top:1px solid var(--line);font-size:11px}
 .foot .copy{margin-left:auto}
-@media print{.foot{display:none}}
 
+@media (max-width:960px){
+  .layout{grid-template-columns:1fr}
+  aside{position:static;max-height:none}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kpi.main{grid-column:1/-1}
+}
 @media (max-width:640px){
-  .topbar .inner{padding:12px 16px;gap:11px}
-  .mark{width:42px;height:42px;font-size:19px}
-  .brand strong{font-size:1.08rem}
-  .topbar .pill{padding:9px 15px;font-size:.88rem}
-  .wrap{padding:0 16px 56px}
-  .hero{padding:40px 0 32px}
-  .card{padding:22px;border-radius:1.25rem}
-  .card > h2{font-size:1.3rem}
-  .scroll{margin:24px -22px 0;padding:0 22px}
+  .nav .in{padding:10px 16px}
+  .nav .links{display:none}
+  .wrap{padding:0 16px}
+  .hero{padding:28px 0 20px}
+  .board,main section,aside{padding:18px;border-radius:18px}
+  .rent-row{grid-template-columns:1fr;gap:4px}
+  .rent-row .money{order:-1}
+  .kpi{padding:12px 14px}
+  .kpi .v{font-size:1.25rem}
+  .cmp .row{grid-template-columns:72px minmax(0,1fr) 88px;gap:8px;font-size:.78rem}
+  .dgrid{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr 1fr}
+  .card{padding:12px}
+  .card .net strong{font-size:1.15rem}
+  .wtable{font-size:.78rem}
+  .wtable th,.wtable td{padding:8px 4px}
+}
+@media (max-width:400px){.cards{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.001ms!important;animation:none!important}
+  .card:hover{transform:none}
+}
+@media (prefers-reduced-transparency:reduce){.nav{background:var(--paper);backdrop-filter:none}}
+@media print{
+  .nav,aside,.foot,#whatif,#export,.plans,.rent-row,.toast{display:none!important}
+  .layout{display:block}
+  body{background:#fff}
+  main section,.board{box-shadow:none;break-inside:avoid}
+  .card:hover{transform:none}
 }
 </style>
 </head>
 <body>
 
-<div class="topbar"><div class="inner">
-  <span class="mark"><svg class="icon" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg></span>
-  <span class="brand"><strong>房東稅賦試算</strong><span>四種身分，一次算清</span></span>
-  <a class="pill" href="https://wocalc.3mi.tw/" target="_blank" rel="noopener">
-    <svg class="icon" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="8" y2="11.01"/><line x1="12" y1="11" x2="12" y2="11.01"/><line x1="16" y1="11" x2="16" y2="11.01"/><line x1="8" y1="15" x2="8" y2="15.01"/><line x1="12" y1="15" x2="12" y2="15.01"/><line x1="16" y1="15" x2="16" y2="18.01"/><line x1="8" y1="18" x2="12" y2="18.01"/></svg>
-    窩算算
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-building" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></symbol>
+  <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/></symbol>
+  <symbol id="i-flask" viewBox="0 0 24 24"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></symbol>
+  <symbol id="i-printer" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-reset" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></symbol>
+  <symbol id="i-coins" viewBox="0 0 24 24"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></symbol>
+</svg>
+
+<header class="nav"><div class="in">
+  <a class="logo" href="/">
+    <span class="mk"><svg class="icon"><use href="#i-building"/></svg></span>
+    <span>房東稅賦試算<small>3mi.ai 出租決策工具</small></span>
   </a>
-</div></div>
+  <nav class="links" aria-label="3mi 產品">
+    <a class="pill" href="https://3mi.ai" rel="noopener">3mi</a>
+    <a class="pill" href="https://reads.3mi.ai" rel="noopener">Reads</a>
+    <a class="pill" href="https://trending.3mi.ai" rel="noopener">Trending</a>
+    <a class="pill" href="https://chunkup.3mi.ai" rel="noopener">ChunkUp</a>
+    <a class="pill" href="https://wocalc.3mi.tw" rel="noopener">窩算算</a>
+  </nav>
+</div></header>
 
 <div class="wrap">
 
 <section class="hero">
-  <h1>算算看你<em>該當哪種房東</em></h1>
-  <p class="lead">同一間房子、四種出租身分，整年落袋差多少一次看懂</p>
-  <p class="privacy">
-    <svg class="icon" viewBox="0 0 24 24"><path d="M12 3l1.9 4.6L18.5 9.5 13.9 11.4 12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"/><path d="M19 15l.8 1.9 1.9.8-1.9.8L19 21l-.8-1.5-1.9-.8 1.9-.8z"/></svg>
-    全部在瀏覽器本地計算，不會上傳伺服器
-  </p>
-</section>
+  <span class="eyebrow"><svg class="icon"><use href="#i-shield"/></svg>全部在瀏覽器本地計算，不會上傳</span>
+  <h1>你的房子，一年<em>真正能賺多少</em>？</h1>
+  <p class="lead">輸入月租金，即時比較五種出租方式的所得稅、二代健保、房地稅、補助與空置風險，看清楚一年實際落袋多少。</p>
 
-<section class="card">
-  <h2>
-    <svg class="icon" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="8" y2="11.01"/><line x1="12" y1="11" x2="12" y2="11.01"/><line x1="16" y1="11" x2="16" y2="11.01"/><line x1="8" y1="15" x2="8" y2="15.01"/><line x1="12" y1="15" x2="12" y2="15.01"/><line x1="16" y1="15" x2="16" y2="18.01"/><line x1="8" y1="18" x2="12" y2="18.01"/></svg>
-    開始試算
-  </h2>
-  <p class="sub">填下面四個數字，右邊比較表會即時更新</p>
-
-  <div class="grid">
-    <div class="field">
-      <label for="rent">市價月租金 <span class="badge req">必填</span></label>
-      <div class="control"><input id="rent" type="number" min="0" step="1000" value="28000"><span class="unit">元/月</span></div>
+  <div class="board">
+    <div class="rent-row">
+      <div>
+        <label class="lbl" for="rentRange">每月租金</label>
+        <input id="rentRange" type="range" min="10000" max="100000" step="500" data-k="rent" aria-label="每月租金滑桿">
+        <div class="scale num"><span>NT$10,000</span><span>NT$55,000</span><span>NT$100,000</span></div>
+      </div>
+      <div class="money">
+        <label class="lbl" for="rent">手動輸入</label>
+        <div style="position:relative"><span>NT$</span><input id="rent" type="text" inputmode="numeric" data-k="rent" data-fmt="money" autocomplete="off"></div>
+      </div>
     </div>
-    <div class="field">
-      <label for="bracket">綜所稅級距 <span class="badge req">必填</span></label>
-      <div class="control"><select id="bracket">
-        <option value="0.05">5%</option>
-        <option value="0.12">12%</option>
-        <option value="0.20">20%</option>
-        <option value="0.30" selected>30%</option>
-        <option value="0.40">40%</option>
-      </select></div>
-      <p class="hint">你全年所得適用的最高稅率級距</p>
+    <div class="plans">
+      <div class="lbl">查看方案</div>
+      <div class="seg" id="planSeg" role="radiogroup" aria-label="出租方案"></div>
     </div>
-    <div class="field">
-      <label for="houseValue">房屋課稅現值 <span class="badge">選填</span></label>
-      <div class="control"><input id="houseValue" type="number" min="0" step="10000" value="0"><span class="unit">元</span></div>
-      <p class="hint">房屋稅單上的「課稅現值」，留 0 則不計房屋稅</p>
-    </div>
-    <div class="field">
-      <label for="landValue">申報地價總額 <span class="badge">選填</span></label>
-      <div class="control"><input id="landValue" type="number" min="0" step="10000" value="0"><span class="unit">元</span></div>
-      <p class="hint">地價稅單上的「課稅地價」，留 0 則不計地價稅</p>
+    <div class="kpis" aria-live="polite">
+      <div class="kpi main"><div class="k"><svg class="icon"><use href="#i-coins"/></svg>年度淨現金流</div><div class="v num" id="kNet"></div><div class="s" id="kNetS"></div></div>
+      <div class="kpi"><div class="k"><svg class="icon"><use href="#i-calendar"/></svg>平均每月</div><div class="v num" id="kMonth"></div><div class="s">年度淨現金流 ÷ 12</div></div>
+      <div class="kpi"><div class="k"><svg class="icon"><use href="#i-receipt"/></svg>年度稅費</div><div class="v num tax" id="kTax"></div><div class="s" id="kTaxS"></div></div>
+      <div class="kpi"><div class="k"><svg class="icon"><use href="#i-scale"/></svg>相較自行出租</div><div class="v num" id="kDiff"></div><div class="s" id="kDiffS"></div></div>
     </div>
   </div>
+</section>
 
-  <details>
-    <summary>
-      <svg class="icon" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-      進階參數：成本與補助假設
-    </summary>
-    <div class="grid">
-      <div class="field">
-        <label for="discount">包租代管租金成數</label>
-        <div class="control"><input id="discount" type="number" min="50" max="100" step="1" value="100"><span class="unit">%</span></div>
-        <p class="hint">社宅包租代管常為市價 8～9 折；設 100 則同價比較</p>
-      </div>
-      <div class="field">
-        <label for="agentMonths">招租仲介費</label>
-        <div class="control"><input id="agentMonths" type="number" min="0" max="2" step="0.5" value="1"><span class="unit">個月租金</span></div>
-      </div>
-      <div class="field">
-        <label for="mgmtRate">代管費</label>
-        <div class="control"><input id="mgmtRate" type="number" min="0" max="30" step="1" value="10"><span class="unit">% 年租金</span></div>
-      </div>
-      <div class="field">
-        <label for="repair">修繕補助</label>
-        <div class="control"><input id="repair" type="number" min="0" step="500" value="10000"><span class="unit">元/年</span></div>
-        <p class="hint">一般戶上限 1 萬，租給弱勢戶 1.5 萬</p>
-      </div>
-      <div class="field">
-        <label for="insurance">居家安全險補助</label>
-        <div class="control"><input id="insurance" type="number" min="0" step="500" value="3500"><span class="unit">元/年</span></div>
-      </div>
-      <div class="field">
-        <label for="notary">公證費補助</label>
-        <div class="control"><input id="notary" type="number" min="0" step="500" value="4500"><span class="unit">元/年</span></div>
-      </div>
+<div class="layout">
+
+<aside aria-label="試算參數">
+  <h2><svg class="icon"><use href="#i-sliders"/></svg>試算參數</h2>
+
+  <div class="grp">
+    <div class="lbl">租金基準</div>
+    <div class="seg sm">
+      <label><input type="radio" name="basis" value="contract" data-k="basis"><span>實際契約租金</span></label>
+      <label><input type="radio" name="basis" value="market" data-k="basis"><span>市場租金</span></label>
     </div>
-  </details>
+    <p class="hint" id="basisHint"></p>
+    <div class="fields" id="discounts" style="margin-top:10px"></div>
+  </div>
+
+  <div class="grp">
+    <div class="lbl">所得稅邊際稅率</div>
+    <div class="seg sm" id="bracketSeg"></div>
+    <p class="hint">你全年綜合所得適用的最高級距</p>
+  </div>
+
+  <div class="grp">
+    <label class="lbl" for="vacancy">年空置月份 <span class="vac-v num" id="vacV"></span></label>
+    <input id="vacancy" type="range" min="0" max="12" step="1" data-k="vacancy">
+    <p class="hint">社宅包租由業者承租，空置期間仍按保證月份收租</p>
+  </div>
+
+  <div class="grp">
+    <label class="sw"><span style="display:flex;gap:8px;align-items:center"><svg class="icon" style="color:var(--brand)"><use href="#i-heart"/></svg>二代健保補充保費</span><input type="checkbox" data-k="nhiOn"></label>
+    <p class="hint">租金由扣費義務人（公司、機關、包租業者）給付且單次達門檻才扣；一般個人房客不扣。</p>
+    <div class="fields" style="margin-top:10px">
+      <div class="f"><label for="nhiRate">費率 %</label><input id="nhiRate" type="number" step="0.01" min="0" data-k="nhiRate" data-scale="100"></div>
+      <div class="f"><label for="nhiThreshold">扣費門檻</label><input id="nhiThreshold" type="number" step="1000" min="0" data-k="nhiThreshold"></div>
+      <div class="f" style="grid-column:1/-1"><label for="payEvery">每次給付</label><select id="payEvery" data-k="payEvery">
+        <option value="1">每月付 1 個月</option><option value="2">一次付 2 個月</option><option value="3">每季付 3 個月</option><option value="6">半年付 6 個月</option><option value="12">一年付 12 個月</option>
+      </select></div>
+    </div>
+    <div class="sub" style="font-size:.74rem;font-weight:700;color:var(--ink-3);margin:12px 0 6px">各方案租金給付者</div>
+    <div class="fields" id="payers"></div>
+  </div>
+
+  <div class="grp">
+    <details class="adv">
+      <summary><svg class="icon"><use href="#i-chevron"/></svg>進階財務參數</summary>
+      <div class="sub">收租</div>
+      <div class="fields">
+        <div class="f"><label for="guarantee">包租保證收租（月）</label><input id="guarantee" type="number" min="0" max="12" data-k="guarantee"></div>
+        <div class="f"><label for="agencyRate">一般包租代管服務費 %</label><input id="agencyRate" type="number" min="0" max="100" data-k="agencyRate"></div>
+      </div>
+      <div class="sub">房地稅（一般出租稅額）</div>
+      <div class="fields">
+        <div class="f"><label for="houseTax">年度房屋稅</label><input id="houseTax" type="number" min="0" step="500" data-k="houseTax"></div>
+        <div class="f"><label for="landTax">年度地價稅</label><input id="landTax" type="number" min="0" step="100" data-k="landTax"></div>
+        <div class="f"><label for="houseRatio">優惠房屋稅 %<span class="tag tbc">待確認</span></label><input id="houseRatio" type="number" min="0" max="100" data-k="houseRatio"></div>
+        <div class="f"><label for="landRatio">優惠地價稅 %<span class="tag tbc">待確認</span></label><input id="landRatio" type="number" min="0" max="100" data-k="landRatio"></div>
+      </div>
+      <p class="hint">公益出租人、社宅包租／代管適用優惠稅率，以一般稅額的百分比估算；實際依所在地稅務局核定。</p>
+      <div class="sub">成本</div>
+      <div class="fields">
+        <div class="f"><label for="mgmt">年度管理費</label><input id="mgmt" type="number" min="0" step="1000" data-k="mgmt"></div>
+        <div class="f"><label for="repairCost">年度維修成本</label><input id="repairCost" type="number" min="0" step="1000" data-k="repairCost"></div>
+        <div class="f"><label for="oneTime">其他一次性費用</label><input id="oneTime" type="number" min="0" step="1000" data-k="oneTime"></div>
+        <div class="f"><label for="otherYearly">其他年度費用</label><input id="otherYearly" type="number" min="0" step="1000" data-k="otherYearly"></div>
+      </div>
+      <div class="sub">政府補助（僅社宅包租／代管）</div>
+      <div class="fields">
+        <div class="f"><label for="repairSub">修繕補助<span class="tag year">年度</span></label><input id="repairSub" type="number" min="0" step="500" data-k="repairSub"></div>
+        <div class="f"><label for="insureSub">保險補助<span class="tag year">年度</span></label><input id="insureSub" type="number" min="0" step="500" data-k="insureSub"></div>
+        <div class="f"><label for="notarySub">公證費補助<span class="tag once">一次性</span></label><input id="notarySub" type="number" min="0" step="500" data-k="notarySub"></div>
+      </div>
+      <p class="hint">資格：房屋須加入社宅包租代管計畫並由業者媒合。修繕一般戶上限 1 萬、弱勢戶 1.5 萬；金額依當期計畫公告。</p>
+    </details>
+  </div>
+
+  <div class="grp"><button class="btn ghost" id="reset" type="button"><svg class="icon"><use href="#i-reset"/></svg>回到預設值</button></div>
+</aside>
+
+<main>
+
+<section id="split">
+  <h2><svg class="icon"><use href="#i-scale"/></svg>四種稅務身分：租金怎麼被課稅<span class="no">每月</span></h2>
+  <p class="desc">同樣月租 <b class="num" id="splitRent"></b>，各身分有多少免稅、多少可扣必要費用、多少要併入所得。</p>
+  <div class="legend"><span><i style="background:var(--exempt)"></i>免稅額</span><span><i style="background:var(--expense)"></i>必要費用扣除</span><span><i style="background:var(--tax)"></i>應稅所得</span></div>
+  <div class="split" id="splitBars"></div>
+  <p class="note"><svg class="icon"><use href="#i-info"/></svg><span>圖中區段是租賃所得在<b>稅務上的分配</b>，不是實際發生的支出。社宅包租與社宅代管共用同一套社宅稅務規則。</span></p>
 </section>
 
-<section class="card">
-  <h2>
-    <svg class="icon" viewBox="0 0 24 24"><path d="M16 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="M2 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>
-    四種房東身分比較
-  </h2>
-  <p class="sub">金色欄位是整年淨收益最高的身分</p>
-  <div class="scroll"><table id="out"></table></div>
+<section id="compare">
+  <h2><svg class="icon"><use href="#i-chart"/></svg>五種方案一年收益比較</h2>
+  <p class="desc">整條長度是全年收入加補助，切成留下的淨額、稅費與成本。點卡片可切換上方焦點與明細。</p>
+  <div class="legend"><span><i style="background:var(--income)"></i>年度淨現金流</span><span><i style="background:var(--tax)"></i>稅費（所得稅＋健保＋房地稅）</span><span><i style="background:var(--cost)"></i>管理、維修與其他成本</span></div>
+  <div class="cmp" id="cmpBars"></div>
+  <div class="cards" id="cards"></div>
+  <p class="note"><svg class="icon"><use href="#i-info"/></svg><span id="assume"></span></p>
 </section>
 
-<section class="card notes">
-  <h2>
-    <svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-    計算方式與依據
-  </h2>
+<section id="detail">
+  <h2><svg class="icon"><use href="#i-receipt"/></svg>逐項計算明細：<span id="dName"></span></h2>
+  <div class="detail" id="dBody"></div>
+</section>
 
-  <h3><svg class="icon" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>公式</h3>
+<section id="whatif">
+  <h2><svg class="icon"><use href="#i-flask"/></svg>What-if 情境模擬</h2>
+  <p class="desc">勾選一或多個情境，和目前設定並排比較，不會改動你的試算。</p>
+  <div class="chips" id="chips"></div>
+  <div id="wOut"></div>
+</section>
+
+<section id="export">
+  <h2><svg class="icon"><use href="#i-download"/></svg>匯出與分享</h2>
+  <p class="desc">分享連結會帶上目前所有參數，對方打開就能重現同一份試算。</p>
+  <div class="exports">
+    <button class="btn primary" type="button" id="exShare"><svg class="icon"><use href="#i-link"/></svg>複製分享連結</button>
+    <button class="btn" type="button" id="exCopy"><svg class="icon"><use href="#i-copy"/></svg>複製試算結果</button>
+    <button class="btn" type="button" id="exCsv"><svg class="icon"><use href="#i-download"/></svg>匯出 CSV</button>
+    <button class="btn" type="button" id="exPdf"><svg class="icon"><use href="#i-printer"/></svg>匯出 PDF</button>
+  </div>
+</section>
+
+<section class="notes">
+  <h2><svg class="icon"><use href="#i-book"/></svg>計算方式與依據</h2>
+  <h3><svg class="icon"><use href="#i-receipt"/></svg>租賃所得稅（R＝每月實際租金）</h3>
   <ul>
-    <li>綜所稅 ＝（月租金 − 免稅額）× 12 ×（1 − 必要費用率）× 綜所稅級距</li>
-    <li>免稅額：自租自管 0 元；公益出租人與社宅包租代管 每屋每月 15,000 元</li>
-    <li>必要費用率：自租自管與公益出租人 43%；社宅包租代管 60%</li>
-    <li>房屋稅：一般出租 2.4%；公益出租人與社宅包租代管 適用自住 1.2%</li>
-    <li>地價稅：一般用地 10‰；公益出租人與社宅包租代管 適用自用住宅用地 2‰</li>
-    <li>修繕、居家安全險、公證費三項補助僅社宅包租代管適用，且招租與代管由業者負擔</li>
-    <li>一般宅包租代管無租稅優惠，代管費自付，等同一般出租再扣一筆管理成本</li>
+    <li>自行出租：<code>R × 57%</code>（必要費用率 43%）</li>
+    <li>公益出租人：<code>MAX(0, R − 15,000) × 57%</code>，每屋每月 15,000 元免稅</li>
+    <li>一般包租代管：<code>MAX(0, MIN(R, 20,000) − 6,000) × 47% + MAX(0, R − 20,000) × 57%</code>，6,000 元免稅、6,000–20,000 元扣除 53% <span class="tag tbc f" style="font-size:.7rem;padding:1px 6px;border-radius:99px">優惠適用期限待確認</span></li>
+    <li>社宅包租／代管：<code>MAX(0, R − 15,000) × 40%</code>，15,000 元免稅、超過部分扣除 60%</li>
+    <li>年度所得稅 ＝ Σ 各收租月份應稅所得 × 邊際稅率。邊際稅率只估「增加的稅負」，不是正式應納稅額。</li>
   </ul>
-
-  <h3><svg class="icon" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>參考來源</h3>
+  <h3><svg class="icon"><use href="#i-heart"/></svg>二代健保補充保費</h3>
   <ul>
-    <li><a href="https://www.moi.gov.tw/News_Content.aspx?n=4&amp;sms=9009&amp;s=328061" target="_blank" rel="noopener">內政部｜社會住宅包租代管與公益出租人報稅攻略</a>　免稅額與必要費用率</li>
-    <li><a href="https://pip.moi.gov.tw/V3/E/SCRE0201.aspx" target="_blank" rel="noopener">內政部不動產資訊平台｜社會住宅包租代管專區</a>　方案內容與申請資格</li>
-    <li><a href="https://tpctax.gov.taipei/" target="_blank" rel="noopener">臺北市稅捐稽徵處｜公益出租人及社宅包租代管房東租稅優惠懶人包</a>　房屋稅、地價稅適用稅率</li>
-    <li><a href="https://chs168.com.tw/%E4%B8%80%E8%88%AC%E8%87%AA%E7%A7%9Fvs%E5%85%AC%E7%9B%8A%E5%87%BA%E7%A7%9F%E4%BA%BAvs%E7%A4%BE%E6%9C%83%E4%BD%8F%E5%AE%85%E5%8C%85%E7%A7%9F%E4%BB%A3%E7%AE%A1%E7%A8%85%E7%8E%87%E5%88%86%E6%9E%90/" target="_blank" rel="noopener">長信物業｜自租 vs 公益出租人 vs 社宅包租代管稅率分析</a>　本站公式的驗證範例</li>
-    <li><a href="https://www.nlma.gov.tw/ch/titlelist/news/4538" target="_blank" rel="noopener">國家住宅及都市更新中心｜包租代管修繕與保險補助</a>　三費補助金額</li>
+    <li>單次給付 ≥ 20,000 元且給付者為扣費義務人時，每次扣 <code>ROUND(給付額 × 2.11%)</code>，元以下四捨五入。</li>
+    <li>按每次給付計算：月付 19,999 元不扣，一次付兩個月 39,998 元就要扣。</li>
+    <li>社宅的 15,000 元所得稅免稅額<b>不能</b>從補充保費計費基礎扣除。</li>
   </ul>
-
-  <p class="disclaimer">本試算為概估，未計入個人免稅額、標準／列舉扣除額、其他所得與各縣市差異。房屋稅與地價稅實際稅率依房屋使用情形與地方政府公告為準，實際應納稅額以稽徵機關核定為準。</p>
+  <h3><svg class="icon"><use href="#i-coins"/></svg>年度淨現金流</h3>
+  <ul>
+    <li>租金收入 ＋ 補助 − 所得稅 − 補充保費 − 房屋稅 − 地價稅 − 管理費 − 維修 − 代管服務費 − 其他費用</li>
+    <li>這是出租期間的稅費後現金收益，不是完整投資報酬率；真正 ROI 還需購屋成本、貸款與利息。</li>
+    <li>以單一年度、12 個月計；跨年度租期請按各年實收月份分開試算。</li>
+  </ul>
+  <h3><svg class="icon"><use href="#i-book"/></svg>參考來源</h3>
+  <ul>
+    <li><a href="https://www.moi.gov.tw/News_Content.aspx?n=4&amp;sms=9009&amp;s=328061" target="_blank" rel="noopener">內政部｜社會住宅包租代管與公益出租人報稅攻略</a></li>
+    <li><a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0060125" target="_blank" rel="noopener">租賃住宅市場發展及管理條例</a>　一般包租代管減徵規定</li>
+    <li><a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0060074" target="_blank" rel="noopener">住宅法</a>　公益出租人、社會住宅租稅優惠</li>
+    <li><a href="https://www.nhi.gov.tw/ch/cp-2681-1d46f-2853-1.html" target="_blank" rel="noopener">衛福部中央健保署｜補充保險費</a></li>
+    <li><a href="https://pip.moi.gov.tw/V3/E/SCRE0201.aspx" target="_blank" rel="noopener">內政部不動產資訊平台｜社會住宅包租代管專區</a>　補助項目與資格</li>
+    <li><a href="https://tpctax.gov.taipei/" target="_blank" rel="noopener">臺北市稅捐稽徵處｜公益出租人及社宅包租代管租稅優惠</a>　房屋稅、地價稅</li>
+  </ul>
+  <p class="disclaimer" id="ver"></p>
 </section>
 
+</main>
+</div>
 </div>
 
 <footer class="foot"><div class="in">
@@ -339,65 +532,249 @@ td small{display:block;font-weight:500;font-size:.76rem;color:var(--muted-foregr
   </div>
 </div></footer>
 
+<div class="toast" id="toast" role="status"><svg class="icon"><use href="#i-check"/></svg><span></span></div>
+
 <script src="calc.js"></script>
 <script>
 const $ = id => document.getElementById(id);
-const num = id => Number($(id).value) || 0;
-const nt = n => (n < -0.5 ? '−$' : '$') + Math.round(Math.abs(n)).toLocaleString('en-US');
+const ic = n => `<svg class="icon"><use href="#i-${n}"/></svg>`;
+const nt = n => (n < -0.5 ? '−' : '') + 'NT$' + Math.round(Math.abs(n)).toLocaleString('en-US');
+const signed = n => (n > 0.5 ? '+' : '') + nt(n);
+const pct = (a, b) => b > 0 ? Math.max(0, a / b * 100) : 0;
+const planName = k => PLANS.find(p => p.key === k).name;
+const clone = o => JSON.parse(JSON.stringify(o));
 
-const params = () => ({
-  rent: num('rent'),
-  bracket: Number($('bracket').value),
-  houseValue: num('houseValue'),
-  landValue: num('landValue'),
-  discount: num('discount') / 100,
-  agentMonths: num('agentMonths'),
-  mgmtRate: num('mgmtRate') / 100,
-  subsidy: num('repair') + num('insurance') + num('notary'),
-});
+// 狀態：從網址還原，否則用預設值
+let st = load();
+const whatif = new Set();
 
-function render() {
-  const rows = calcAll(params());
-  const baseline = rows.find(r => r.t.key === 'self');
-  const bestNet = Math.max(...rows.map(r => r.net));
-  const isBest = v => Math.abs(v - bestNet) < 0.5;
-
-  const line = (label, sub, pick, opts = {}) => {
-    const cells = rows.map(r => {
-      const v = pick(r);
-      let cls = '';
-      if (opts.highlight && isBest(v)) cls = 'win';
-      else if (opts.signed && v > 0.5) cls = 'pos';
-      else if (opts.signed && v < -0.5) cls = 'neg';
-      return `<td class="${cls}">${nt(v)}${opts.monthly ? `<small>月均 ${nt(v / 12)}</small>` : ''}</td>`;
-    }).join('');
-    return `<tr class="${opts.headline ? 'headline' : ''}"><td>${label}${sub ? `<small>${sub}</small>` : ''}</td>${cells}</tr>`;
-  };
-
-  $('out').innerHTML = `
-    <thead><tr><th>項目</th>${rows.map(r =>
-      `<th class="${isBest(r.net) ? 'best' : ''}">${r.t.name}<small>${r.t.note}</small></th>`).join('')}</tr></thead>
-    <tbody>
-      ${line('整年租金收入', '', r => r.annual, { monthly: true })}
-      ${line('整年淨收益', '扣稅與成本、加計補助後', r => r.net, { monthly: true, highlight: true, headline: true })}
-      ${line('比自租自管多賺', '', r => r.net - baseline.net, { signed: true })}
-      <tr class="section"><td colspan="${rows.length + 1}">稅</td></tr>
-      ${line('併入所得的租賃所得', '（月租 − 免稅額）× 12 ×（1 − 費用率）', r => r.taxable)}
-      ${line('綜所稅', '', r => r.incomeTax)}
-      ${line('房屋稅', '', r => r.houseTax)}
-      ${line('地價稅', '', r => r.landTax)}
-      ${line('整年稅賦合計', '', r => r.totalTax)}
-      ${line('比自租自管省稅', '', r => baseline.totalTax - r.totalTax, { signed: true })}
-      <tr class="section"><td colspan="${rows.length + 1}">成本與補助</td></tr>
-      ${line('招租成本', '仲介費', r => -r.agentCost, { signed: true })}
-      ${line('代管成本', '年租金抽成', r => -r.mgmtCost, { signed: true })}
-      ${line('政府補助', '修繕 ＋ 保險 ＋ 公證', r => r.support, { signed: true })}
-    </tbody>`;
+function load() {
+  try {
+    const q = new URLSearchParams(location.hash.slice(1)).get('s');
+    if (q) return normalize(JSON.parse(decodeURIComponent(escape(atob(q)))));
+  } catch {}
+  return normalize(clone(DEFAULTS));
+}
+function save() {
+  const diff = {};
+  for (const k in st) if (JSON.stringify(st[k]) !== JSON.stringify(DEFAULTS[k])) diff[k] = st[k];
+  const h = Object.keys(diff).length ? '#s=' + btoa(unescape(encodeURIComponent(JSON.stringify(diff)))) : ' ';
+  history.replaceState(null, '', h === ' ' ? location.pathname : h);
 }
 
-document.querySelectorAll('input,select').forEach(el => el.addEventListener('input', render));
+// 動態控制項
+$('planSeg').innerHTML = PLANS.map(p => `<label><input type="radio" name="plan" value="${p.key}" data-k="plan"><span>${p.name}</span></label>`).join('');
+$('bracketSeg').innerHTML = [0.05, 0.12, 0.2, 0.3, 0.4].map(v => `<label><input type="radio" name="bracket" value="${v}" data-k="bracket"><span>${v * 100}%</span></label>`).join('');
+$('discounts').innerHTML = PLANS.map(p => `<div class="f"><label for="d-${p.key}">${p.name} %</label><input id="d-${p.key}" type="number" min="0" max="100" data-k="discounts.${p.key}"></div>`).join('');
+$('payers').innerHTML = PLANS.map(p => `<div class="f"><label for="p-${p.key}">${p.name}</label><select id="p-${p.key}" data-k="payers.${p.key}"><option value="person">個人房客</option><option value="company">公司／業者</option></select></div>`).join('');
+
+const SCEN = [
+  { key: 'vac2', label: '一年空置兩個月', apply: s => ({ ...s, vacancy: 2 }) },
+  { key: 'lease80', label: '社宅包租只給八折', apply: s => ({ ...s, basis: 'market',
+    discounts: s.basis === 'market' ? { ...s.discounts, socialLease: 80 } : { self: 100, charity: 100, agency: 100, socialManage: 100, socialLease: 80 } }) },
+  { key: 'tax30', label: '所得稅率變 30%', apply: s => ({ ...s, bracket: 0.3 }) },
+  { key: 'noRepair', label: '申請不到修繕補助', apply: s => ({ ...s, repairSub: 0 }) },
+  { key: 'full', label: '自行出租也全年收滿', apply: s => ({ ...s, vacancy: 0 }) },
+];
+$('chips').innerHTML = SCEN.map(c => `<label><input type="checkbox" value="${c.key}"><span>${ic('check')}${c.label}</span></label>`).join('');
+
+// 讀寫 data-k 路徑（支援 discounts.self 這種一層巢狀）
+const get = k => k.split('.').reduce((o, p) => o[p], st);
+function set(k, v) {
+  const [a, b] = k.split('.');
+  if (b) st[a] = { ...st[a], [b]: v }; else st[a] = v;
+}
+function readEl(el) {
+  if (el.type === 'checkbox') return el.checked;
+  if (el.type === 'radio') return isNaN(+el.value) ? el.value : +el.value;
+  if (el.tagName === 'SELECT') return isNaN(+el.value) ? el.value : +el.value;
+  const n = Number(String(el.value).replace(/[^\d.]/g, ''));
+  return el.dataset.scale ? n / el.dataset.scale : n;
+}
+function syncControls(skip) {
+  document.querySelectorAll('[data-k]').forEach(el => {
+    if (el === skip) return;
+    const v = get(el.dataset.k);
+    if (el.type === 'checkbox') el.checked = !!v;
+    else if (el.type === 'radio') el.checked = String(v) === el.value;
+    else if (el.dataset.fmt === 'money') el.value = Math.round(v).toLocaleString('en-US');
+    else if (el.dataset.scale) el.value = +(v * el.dataset.scale).toFixed(4);
+    else el.value = v;
+    if (el.type === 'range') el.style.setProperty('--p', pct(Math.min(+el.max, Math.max(+el.min, v)) - el.min, el.max - el.min) + '%');
+  });
+}
+
+document.addEventListener('input', e => {
+  const el = e.target;
+  if (!el.dataset.k) return;
+  set(el.dataset.k, readEl(el));
+  st = normalize(st);
+  syncControls(el);
+  if (el.type === 'range') el.style.setProperty('--p', pct(el.value - el.min, el.max - el.min) + '%');
+  render();
+});
+// 金額欄位失焦時補上千分位
+$('rent').addEventListener('blur', () => syncControls());
+$('chips').addEventListener('change', e => { e.target.checked ? whatif.add(e.target.value) : whatif.delete(e.target.value); renderWhatif(calcAll(st)); });
+$('reset').addEventListener('click', () => { st = normalize(clone(DEFAULTS)); syncControls(); render(); toast('已回到預設值'); });
+
+function render() {
+  const rows = calcAll(st);
+  const sel = rows.find(r => r.plan.key === st.plan);
+  const base = rows.find(r => r.plan.key === 'self');
+  const best = rows.reduce((a, b) => b.net > a.net ? b : a);
+
+  // Hero
+  $('kNet').textContent = nt(sel.net);
+  $('kNetS').textContent = `${sel.plan.name} · 月租 ${nt(sel.rent)} · 收租 ${sel.months} 個月`;
+  $('kMonth').textContent = nt(sel.monthlyNet);
+  $('kTax').textContent = nt(sel.taxes);
+  $('kTaxS').textContent = `所得稅 ${nt(sel.incomeTax)} · 健保 ${nt(sel.nhi.total)}`;
+  const diff = sel.net - base.net;
+  $('kDiff').textContent = sel === base ? '基準' : signed(diff);
+  $('kDiff').className = 'v num ' + (sel === base ? '' : diff >= 0 ? 'pos' : 'neg');
+  $('kDiffS').textContent = sel === base ? '其他方案都和這個比' : `每月 ${signed(diff / 12)}`;
+
+  $('basisHint').textContent = st.basis === 'market'
+    ? '租金為市場行情，各方案按下方成數換算實際約定租金'
+    : '租金為各方案實際約定的月租，不再打折';
+  $('discounts').hidden = st.basis !== 'market';
+  $('vacV').textContent = st.vacancy + ' 個月';
+
+  // 四種稅務身分
+  $('splitRent').textContent = nt(st.rent);
+  $('splitBars').innerHTML = taxSplit(st.rent).map(r => {
+    const seg = (cls, v) => `<div class="${cls}" style="flex-basis:${pct(v, r.rent)}%" title="${nt(v)}">${pct(v, r.rent) > 13 ? nt(v) : ''}</div>`;
+    return `<div><div class="hd"><b>${r.name}</b><span class="num">應稅 <b>${nt(r.taxable)}</b>（${pct(r.taxable, r.rent).toFixed(1)}%）</span></div>
+      <div class="bar" role="img" aria-label="${r.name}：免稅 ${nt(r.exempt)}、必要費用 ${nt(r.expense)}、應稅 ${nt(r.taxable)}">${seg('b-exempt', r.exempt)}${seg('b-expense', r.expense)}${seg('b-taxable', r.taxable)}</div></div>`;
+  }).join('');
+
+  // 收益比較長條
+  const scale = Math.max(1, ...rows.map(r => Math.max(0, r.net) + r.taxes + r.costs));
+  $('cmpBars').innerHTML = rows.map(r => {
+    const seg = (cls, v, lbl) => `<div class="${cls}" style="flex-basis:${pct(v, scale)}%" title="${lbl} ${nt(v)}"></div>`;
+    return `<div class="row"><b>${r.plan.name}</b><div class="bar" role="img" aria-label="${r.plan.name}：淨額 ${nt(r.net)}、稅費 ${nt(r.taxes)}、成本 ${nt(r.costs)}">${seg('b-net', Math.max(0, r.net), '淨額')}${seg('b-taxes', r.taxes, '稅費')}${seg('b-costs', r.costs, '成本')}</div><span class="v num ${r.net < 0 ? 'neg' : ''}">${nt(r.net)}</span></div>`;
+  }).join('');
+
+  $('cards').innerHTML = rows.map(r => `
+    <button type="button" class="card ${r === sel ? 'on' : ''}" data-plan="${r.plan.key}" aria-pressed="${r === sel}">
+      <span class="t">${r.plan.name}</span>
+      <span class="badges">${r === best ? `<span class="badge best">${ic('award')}最高</span>` : ''}<span class="badge">${r.payer === 'company' ? '公司給付' : '個人給付'}</span>${r.plan.lease ? '<span class="badge">保證收租</span>' : ''}</span>
+      <dl class="num">
+        <dt>約定月租</dt><dd>${nt(r.rent)}</dd>
+        <dt>年租金收入</dt><dd>${nt(r.income)}</dd>
+        <dt>年所得稅</dt><dd class="tax">−${nt(r.incomeTax)}</dd>
+        <dt>年補充保費</dt><dd class="tax">−${nt(r.nhi.total)}</dd>
+        <dt>年房地稅</dt><dd class="tax">−${nt(r.houseTax + r.landTax)}</dd>
+        <dt>補助</dt><dd class="sub">+${nt(r.subsidy)}</dd>
+        <dt>實際成本</dt><dd>−${nt(r.costs)}</dd>
+      </dl>
+      <span class="net"><small>年度淨現金流</small><strong class="num ${r.net < 0 ? 'neg' : ''}">${nt(r.net)}</strong><em>${r === base ? '基準方案' : '比自行出租 ' + signed(r.net - base.net)}</em></span>
+    </button>`).join('');
+
+  $('assume').textContent = `假設：邊際稅率 ${st.bracket * 100}%、空置 ${st.vacancy} 個月、${st.basis === 'market' ? '市場租金換算' : '契約租金'}、`
+    + `補充保費${st.nhiOn ? ` ${+(st.nhiRate * 100).toFixed(2)}%（門檻 ${nt(st.nhiThreshold)}）` : '不計'}。適用 ${RULES.year} 年規則（版本 ${RULES.version}）。`;
+
+  renderDetail(sel);
+  renderWhatif(rows);
+  $('ver').textContent = `規則版本 ${RULES.version}，以 ${RULES.year} 年度現行規定估算。標示「待確認」的參數依縣市與計畫而異，不是全台通用固定值。本試算未計入個人免稅額、扣除額與其他所得，實際應納稅額以稽徵機關核定為準。`;
+  save();
+}
+
+function renderDetail(r) {
+  $('dName').textContent = r.plan.name;
+  const tr = (a, b, cls = '') => `<tr class="${cls}"><td>${a}</td><td class="num">${b}</td></tr>`;
+  const nhiRows = !st.nhiOn ? tr('補充保費', '已關閉')
+    : !r.nhiApplies ? tr('給付者為個人房客', '不扣費')
+    : tr('每次給付', `${st.payEvery} 個月 × ${nt(r.rent)}`)
+      + tr(`給付 ${r.nhi.payments.length} 次`, r.nhi.payments.length ? `${nt(r.nhi.payments[0])} / 次` : '—')
+      + tr(`單次 ≥ ${nt(st.nhiThreshold)} 才扣`, r.nhi.each.length ? `${nt(r.nhi.each[0])} / 次` : '—')
+      + tr('年補充保費', nt(r.nhi.total), 'sum');
+  $('dBody').innerHTML = `
+    <div class="dblock"><h3>${ic('scale')}租賃所得稅　<code>${r.rule.formula}</code></h3><table>
+      ${tr('約定月租 R', nt(r.rent))}
+      ${tr('免稅額', '−' + nt(r.exemptMonthly))}
+      ${tr('必要費用扣除', '−' + nt(r.expenseMonthly))}
+      ${tr('每月課稅基礎', nt(r.taxableMonthly))}
+      ${tr(`× 收租 ${r.months} 個月`, nt(r.taxableYear))}
+      ${tr(`× 邊際稅率 ${st.bracket * 100}%`, nt(r.incomeTax), 'sum')}
+    </table></div>
+    <div class="dgrid">
+      <div class="dblock"><h3>${ic('heart')}二代健保</h3><table>${nhiRows}</table></div>
+      <div class="dblock"><h3>${ic('building')}房地稅</h3><table>
+        ${tr('房屋稅', r.plan.preferential ? `${nt(st.houseTax)} × ${st.houseRatio}% = ${nt(r.houseTax)}` : nt(r.houseTax))}
+        ${tr('地價稅', r.plan.preferential ? `${nt(st.landTax)} × ${st.landRatio}% = ${nt(r.landTax)}` : nt(r.landTax))}
+        ${tr('適用稅率', r.plan.preferential ? '優惠（自住稅率）' : '一般出租')}
+      </table></div>
+    </div>
+    <div class="dgrid">
+      <div class="dblock"><h3>${ic('coins')}補助與成本</h3><table>
+        ${r.plan.subsidised ? tr('修繕＋保險補助（年度）', '+' + nt(r.subsidyYearly)) + tr('公證費補助（一次性）', '+' + nt(r.subsidyOnce)) : tr('政府補助', '不適用')}
+        ${tr('管理費＋維修', '−' + nt(st.mgmt + st.repairCost))}
+        ${r.agencyFee ? tr(`代管服務費 ${st.agencyRate}%`, '−' + nt(r.agencyFee)) : ''}
+        ${tr('其他費用', '−' + nt(st.oneTime + st.otherYearly))}
+      </table></div>
+      <div class="dblock"><h3>${ic('receipt')}年度現金流</h3><table>
+        ${tr(`租金收入（${r.months} 個月）`, nt(r.income))}
+        ${tr('＋ 補助', nt(r.subsidy))}
+        ${tr('− 稅費', nt(r.taxes))}
+        ${tr('− 成本', nt(r.costs))}
+        ${tr('年度淨現金流', nt(r.net), 'sum')}
+      </table></div>
+    </div>`;
+}
+
+function renderWhatif(rows) {
+  if (!whatif.size) { $('wOut').innerHTML = '<p class="wempty">選一個情境開始比較。</p>'; return; }
+  const alt = SCEN.filter(c => whatif.has(c.key)).reduce((s, c) => c.apply(s), clone(st));
+  const altRows = calcAll(alt);
+  $('wOut').innerHTML = `<table class="wtable num"><thead><tr><th>方案</th><th>目前</th><th>情境</th><th>差異</th></tr></thead><tbody>
+    ${rows.map((r, i) => { const d = altRows[i].net - r.net;
+      return `<tr><td>${r.plan.name}</td><td>${nt(r.net)}</td><td>${nt(altRows[i].net)}</td><td class="d ${d > 0.5 ? 'pos' : d < -0.5 ? 'neg' : ''}">${signed(d)}</td></tr>`; }).join('')}
+  </tbody></table><div class="wactions"><button class="btn" type="button" id="wApply">${ic('check')}套用到試算</button></div>`;
+  $('wApply').onclick = () => {
+    st = normalize(alt); whatif.clear();
+    document.querySelectorAll('#chips input').forEach(i => i.checked = false);
+    syncControls(); render(); toast('已套用情境');
+  };
+}
+
+$('cards').addEventListener('click', e => {
+  const c = e.target.closest('[data-plan]');
+  if (!c) return;
+  st.plan = c.dataset.plan; syncControls(); render();
+});
+
+// 匯出
+let toastT;
+function toast(msg) {
+  $('toast').querySelector('span').textContent = msg;
+  $('toast').classList.add('show');
+  clearTimeout(toastT); toastT = setTimeout(() => $('toast').classList.remove('show'), 1800);
+}
+async function copy(text, msg) {
+  try { await navigator.clipboard.writeText(text); toast(msg); }
+  catch { prompt('請手動複製：', text); }
+}
+const COLS = [['方案', r => r.plan.name], ['約定月租', r => r.rent], ['收租月數', r => r.months], ['年租金收入', r => r.income],
+  ['年所得稅', r => r.incomeTax], ['年補充保費', r => r.nhi.total], ['房屋稅', r => r.houseTax], ['地價稅', r => r.landTax],
+  ['補助', r => r.subsidy], ['成本', r => r.costs], ['年度淨現金流', r => Math.round(r.net)], ['平均每月', r => Math.round(r.monthlyNet)]];
+$('exShare').onclick = () => copy(location.href, '分享連結已複製');
+$('exCopy').onclick = () => copy([`房東稅賦試算（${RULES.year} 年規則）`, `月租 ${nt(st.rent)}、邊際稅率 ${st.bracket * 100}%、空置 ${st.vacancy} 個月`, '',
+  ...calcAll(st).map(r => `${r.plan.name}：月租 ${nt(r.rent)}，所得稅 ${nt(r.incomeTax)}、健保 ${nt(r.nhi.total)}、房地稅 ${nt(r.houseTax + r.landTax)}、補助 ${nt(r.subsidy)} → 年度淨現金流 ${nt(r.net)}（月均 ${nt(r.monthlyNet)}）`),
+  '', location.href].join('\n'), '試算結果已複製');
+$('exCsv').onclick = () => {
+  const csv = [COLS.map(c => c[0]), ...calcAll(st).map(r => COLS.map(c => c[1](r)))].map(l => l.join(',')).join('\r\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob(['﻿' + csv], { type: 'text/csv' }));
+  a.download = `房東稅賦試算-${st.rent}.csv`;
+  a.click(); URL.revokeObjectURL(a.href);
+};
+$('exPdf').onclick = () => window.print();
+
+window.addEventListener('hashchange', () => { st = load(); syncControls(); render(); });
+syncControls();
 render();
 </script>
-<script>document.getElementById('year').textContent=new Date().getFullYear()</script>
 </body>
 </html>
